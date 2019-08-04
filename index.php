@@ -12,7 +12,10 @@
       <ul>
         <?php
           while( ($category = mysqli_fetch_assoc($result)) ){
-            echo '<li>' . $category['title'] . '</li>';
+            $atricles_count = mysqli_query($connection, "SELECT COUNT(`id`) AS `total_count` FROM `articles`
+              WHERE `category_id` = " . $category['id']);
+            $atricles_count_result = mysqli_fetch_assoc($atricles_count);
+            echo '<li>' . $category['title'] . ' (' . $atricles_count_result['total_count']  . ')</li>';
           };
         ?>
       </ul>
