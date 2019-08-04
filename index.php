@@ -1,9 +1,5 @@
 <?php
-  $connection = mysqli_connect('localhost', 'root', null, 'test_db');
-  if ($connection == false){
-    echo mysqli_connect_error();
-    exit();
-  };
+  include('includes/db.php');
 
   $result = mysqli_query($connection, 'SELECT * FROM `articles_category`');
   if( mysqli_num_rows($result) == 0 ){
@@ -20,9 +16,22 @@
         ?>
       </ul>
     <?php
-  }
-?>
+  };
+ 
+  $start_data = '2016-12-10 14:00:00';
+  echo $start_data_timestamp = strtotime($start_data) . '<br/>';
+  $diff = time() - $start_data_timestamp;
+  echo floor((($diff / 60)/60)/24) . ' days';
+  echo '<hr/>'
 
+
+?>
+  <form method="POST" action="/auth.php">
+    <input type="text" name="login" placeholder="Login"/>
+    <input type="password"  name="password" placeholder="Password"/>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
 <?php>
   mysqli_close($connection);
 ?>
