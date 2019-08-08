@@ -20,37 +20,7 @@
 
   <div id="wrapper">
 
-    <header id="header">
-      <div class="header__top">
-        <div class="container">
-          <div class="header__top__logo">
-            <h1><?php echo $config["title"]?></h1>
-          </div>
-          <nav class="header__top__menu">
-            <ul>
-              <li><a href="#">Main</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Facebook</a></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-
-      <div class="header__bottom">
-        <div class="container">
-          <nav>
-            <ul>
-              <li><a href="#">Security</a></li>
-              <li><a href="#">Programming</a></li>
-              <li><a href="#">Lifestyle</a></li>
-              <li><a href="#">Music</a></li>
-              <li><a href="#">Guide</a></li>
-              <li><a href="#">Overviews</a></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </header>
+    <?php include("includes/header.php")?>
 
     <div id="content">
       <div class="container">
@@ -177,74 +147,13 @@
             </div>
           </section>
           <section class="content__right col-md-4">
-            <div class="block">
-              <h3>We know</h3>
-              <div class="block__content">
-                <script type="text/javascript" src="//ra.revolvermaps.com/0/0/6.js?i=02op3nb0crr&amp;m=7&amp;s=320&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
-              </div>
-            </div>
-
-            <div class="block">
-              <h3>Top articles</h3>
-              <div class="block__content">
-                <div class="articles articles__vertical">
-
-                  <article class="article">
-                    <div class="article__image" style="background-image: url(/media/images/post-image.jpg);"></div>
-                    <div class="article__info">
-                      <a href="#">Article</a>
-                      <div class="article__info__meta">
-                        <small>Category: <a href="#">Programming</a></small>
-                      </div>
-                      <div class="article__info__preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...</div>
-                    </div>
-                  </article>
-
-
-                </div>
-              </div>
-            </div>
-
-            <div class="block">
-              <h3>Comments</h3>
-              <div class="block__content">
-                <div class="articles articles__vertical">
-
-                  <article class="article">
-                    <div class="article__image" style="background-image: url(/media/images/post-image.jpg);"></div>
-                    <div class="article__info">
-                      <a href="#">Jonny Flame</a>
-                      <div class="article__info__meta">
-                        <small><a href="#">Article #1</a></small>
-                      </div>
-                      <div class="article__info__preview">Lorem, ipsum dolor sit amet consectetur adipisicing elit. In sapiente omnis consequuntur. Dolores, fugit autem?</div>
-                    </div>
-                  </article>
-
-                  
-
-                </div>
-              </div>
-            </div>
+            <?php include("includes/side-bar.php")?>
           </section>
         </div>
       </div>
     </div>
 
-    <footer id="footer">
-      <div class="container">
-        <div class="footer__logo">
-          <h1><?php echo $config["title"]?></h1>
-        </div>
-        <nav class="footer__menu">
-          <ul>
-            <li><a href="#">Main</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Facebook</a></li>
-          </ul>
-        </nav>
-      </div>
-    </footer>
+    <?php include("includes/footer.php")?>
 
   </div>
 
