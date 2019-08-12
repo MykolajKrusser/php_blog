@@ -9,3 +9,5 @@ $config = array(
     "name" => "blog_db"
   )
 );
+
+require 'db.php';

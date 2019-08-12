@@ -27,55 +27,40 @@
         <div class="row">
           <section class="content__left col-md-8">
             <div class="block">
-              <a href="#">All articles</a>
+              <a href="/articles.php">All articles</a>
               <h3>New in blog</h3>
               <div class="block__content">
                 <div class="articles articles__horizontal">
 
-                  <article class="article">
-                    <div class="article__image" style="background-image: url(/media/images/post-image.jpg);"></div>
-                    <div class="article__info">
-                      <a href="#">Article</a>
-                      <div class="article__info__meta">
-                        <small>Category: <a href="#">Programming</a></small>
-                      </div>
-                      <div class="article__info__preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...</div>
-                    </div>
-                  </article>
+                  <?php
+                    $articles = mysqli_query($connection, "SELECT * FROM `articles` ORDER BY `id` DESC LIMIT 10")
+                  ?>
 
-                  <article class="article">
-                    <div class="article__image"></div>
-                    <div class="article__info">
-                      <a href="#">Aticle #2</a>
-                      <div class="article__info__meta">
-                        <small>Category: <a href="#">Lifestyle</a></small>
-                      </div>
-                      <div class="article__info__preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...</div>
-                    </div>
-                  </article>
-
-                  <article class="article">
-                    <div class="article__image"></div>
-                    <div class="article__info">
-                      <a href="#">Article #3</a>
-                      <div class="article__info__meta">
-                        <small>Category: <a href="#">Programming</a></small>
-                      </div>
-                      <div class="article__info__preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...</div>
-                    </div>
-                  </article>
-
-                  <article class="article">
-                    <div class="article__image"></div>
-                    <div class="article__info"> 
-                      <a href="#">Article #4</a>
-                      <div class="article__info__meta">
-                        <small>Category: <a href="#">Lifestyle</a></small>
-                      </div>
-                      <div class="article__info__preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...</div>
-                    </div>
-                  </article>
-
+                  <?php
+                    while( $art = mysqli_fetch_assoc($articles) ){
+                      ?>
+                        <article class="article">
+                          <div class="article__image" style="background-image: url(/static/images/<?php echo $art['img'];?>);"></div>
+                          <div class="article__info">
+                            <a href="/articles.php?id=<?php echo $art['id'];?>"><?php echo $art['title'];?></a>
+                            <div class="article__info__meta">
+                              <?php
+                                foreach( $categories as $cat){
+                                  if($cat['id'] == $art['category_id']){
+                                    ?>
+                                      <small>Category: <a href="/articles.php?category=<?php echo $art['category_id']?>"><?php echo $cat['title']?></a></small>
+                                    <?php
+                                  };
+                                };
+                              ?>
+                            </div>
+                            <div class="article__info__preview"><?php echo mb_substr($art['text'], 0, 80, 'utf-8'); ?></div>
+                          </div>
+                        </article>
+                      <?php
+                    }
+                  ?>
+                
                 </div>
               </div>
             </div>

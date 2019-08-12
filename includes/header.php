@@ -11,22 +11,26 @@
         <ul>
           <li><a href="/">Main</a></li>
           <li><a href="/pages/about-me.php">About</a></li>
-          <li><a href="<?php echo $config["facebook_url"]?>">Facebook</a></li>
+          <li><a target="blank" href="<?php echo $config["facebook_url"]?>">Facebook</a></li>
         </ul>
       </nav>
     </div>
   </div>
 
+  <?php
+    $categories = mysqli_query($connection, "SELECT * FROM `articles_category`");
+  ?>
   <div class="header__bottom">
     <div class="container">
       <nav>
         <ul>
-          <li><a href="#">Security</a></li>
-          <li><a href="#">Programming</a></li>
-          <li><a href="#">Lifestyle</a></li>
-          <li><a href="#">Music</a></li>
-          <li><a href="#">Guide</a></li>
-          <li><a href="#">Overviews</a></li>
+          <?php
+            while($cat = mysqli_fetch_assoc($categories)){
+              ?>
+                <li><a href="/articles.php?category=<?php echo $cat['id'];?>"><?php echo $cat['title'];?></a></li>
+              <?php
+            };
+          ?>
         </ul>
       </nav>
     </div>
