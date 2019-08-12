@@ -20,7 +20,7 @@
 
   <div id="wrapper">
 
-    <?php include("../includes/header.php")?>
+    <?php include("../includes/header.php");?>
 
     <div id="content">
       <div class="container">
@@ -52,13 +52,13 @@
             </div>
           </section>
           <section class="content__right col-md-4">
-            <?php include("../includes/side-bar.php")?>
+            <?php include("../includes/side-bar.php");?>
           </section>
         </div>
       </div>
     </div>
 
-    <?php include("../includes/footer.php")?>
+    <?php include("../includes/footer.php");?>
 
   </div>
 
