@@ -20,7 +20,7 @@
 
   <div id="wrapper">
 
-    <?php include("includes/header.php")?>
+    <?php include("includes/header.php");?>
 
     <div id="content">
       <div class="container">
