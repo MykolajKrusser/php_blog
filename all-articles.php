@@ -55,6 +55,10 @@
                       $articles_exist= false;
                     };
 
+                    if( isset($_GET['category']) ){
+                      $articles = mysqli_query($connection, "SELECT * FROM `articles` WHERE `category_id` =" . $_GET['category']);
+                    }
+
                     while( $art = mysqli_fetch_assoc($articles) ){
                       ?>
                         <article class="article">
@@ -65,7 +69,6 @@
                               <?php
                                 foreach( $categories as $cat){
                                   if($cat['id'] == $art['category_id']){
-                                    echo $offset;
                                     ?>
                                       <small>Category: <a href="/articles.php?category=<?php echo $art['category_id']?>"><?php echo $cat['title']?></a></small>
                                     <?php
