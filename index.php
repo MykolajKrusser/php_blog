@@ -27,7 +27,7 @@
         <div class="row">
           <section class="content__left col-md-8">
             <div class="block">
-              <a href="/articles.php">All articles</a>
+              <a href="/all-articles.php">All articles</a>
               <h3>New in blog</h3>
               <div class="block__content">
                 <div class="articles articles__horizontal">
@@ -64,7 +64,7 @@
             </div>
 
             <div class="block">
-              <a href="/articles.php?category=4">All articles</a>
+              <a href="/all-articles.php?category=4">All articles</a>
               <h3>Security [New]</h3>
               <div class="block__content">
                 <div class="articles articles__horizontal">
@@ -101,7 +101,7 @@
             </div>
 
             <div class="block">
-              <a href="/articles.php?category=5">All articles</a>
+              <a href="/all-articles.php?category=5">All articles</a>
               <h3>Programming [New]</h3>
               <div class="block__content">
                 <div class="articles articles__horizontal">
